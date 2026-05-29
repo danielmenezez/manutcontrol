@@ -1,33 +1,19 @@
 import { AppShell } from "../components/layout/AppShell";
-import { sectionIds } from "./navigation";
-import { CostSection } from "../features/costs/CostSection";
-import { EapSection } from "../features/eap/EapSection";
-import { OverviewSection } from "../features/overview/OverviewSection";
-import { ProblemSection } from "../features/problem/ProblemSection";
-import { ResultsSection } from "../features/results/ResultsSection";
-import { RiskSection } from "../features/risks/RiskSection";
-import { ScheduleSection } from "../features/schedule/ScheduleSection";
+import { MaintenanceWorkspace } from "../features/maintenance/MaintenanceWorkspace";
 import { useActiveSection } from "../hooks/useActiveSection";
-import type { ProjectSectionId } from "../types/project";
+import type { MaintenanceSectionId } from "../types/maintenance";
+import { sectionIds } from "./navigation";
 
 export default function App() {
-  const activeSection = useActiveSection(sectionIds, "inicio");
+  const activeSection = useActiveSection(sectionIds, "dashboard");
 
-  function navigateTo(section: ProjectSectionId) {
+  function navigateTo(section: MaintenanceSectionId) {
     document.getElementById(section)?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   return (
     <AppShell activeSection={activeSection} onNavigate={navigateTo}>
-      <div className="space-y-10">
-        <OverviewSection />
-        <ProblemSection />
-        <EapSection />
-        <ScheduleSection />
-        <RiskSection />
-        <CostSection />
-        <ResultsSection />
-      </div>
+      <MaintenanceWorkspace />
     </AppShell>
   );
 }

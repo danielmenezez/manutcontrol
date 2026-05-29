@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 import { navigation } from "../../app/navigation";
-import type { ProjectSectionId } from "../../types/project";
+import type { MaintenanceSectionId } from "../../types/maintenance";
 import { cn } from "../../utils/styles";
 import { Sidebar } from "./Sidebar";
 
 interface AppShellProps {
-  activeSection: ProjectSectionId;
+  activeSection: MaintenanceSectionId;
   children: ReactNode;
-  onNavigate: (section: ProjectSectionId) => void;
+  onNavigate: (section: MaintenanceSectionId) => void;
 }
 
 export function AppShell({ activeSection, children, onNavigate }: AppShellProps) {
@@ -19,13 +19,13 @@ export function AppShell({ activeSection, children, onNavigate }: AppShellProps)
         <div className="mb-3 flex items-center justify-between">
           <div>
             <div className="text-base font-black">ManutControl</div>
-            <div className="text-xs text-slate-500">Gestão do projeto</div>
+            <div className="text-xs text-slate-500">Controle de manutenção</div>
           </div>
           <div className="grid h-10 w-10 place-items-center rounded-lg bg-brand-700 text-sm font-black text-white">
             MC
           </div>
         </div>
-        <nav className="flex gap-2 overflow-x-auto pb-1" aria-label="Seções do projeto">
+        <nav className="flex gap-2 overflow-x-auto pb-1" aria-label="Módulos do sistema">
           {navigation.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;

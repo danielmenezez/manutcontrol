@@ -1,10 +1,10 @@
-import type { NavigationItem, ProjectSectionId } from "../../types/project";
+import type { MaintenanceSectionId, NavigationItem } from "../../types/maintenance";
 import { cn } from "../../utils/styles";
 
 interface SidebarProps {
-  activeSection: ProjectSectionId;
+  activeSection: MaintenanceSectionId;
   navigation: NavigationItem[];
-  onNavigate: (section: ProjectSectionId) => void;
+  onNavigate: (section: MaintenanceSectionId) => void;
 }
 
 export function Sidebar({ activeSection, navigation, onNavigate }: SidebarProps) {
@@ -16,11 +16,11 @@ export function Sidebar({ activeSection, navigation, onNavigate }: SidebarProps)
         </div>
         <div>
           <div className="text-lg font-black">ManutControl</div>
-          <div className="text-xs text-slate-300">Gestão do projeto</div>
+          <div className="text-xs text-slate-300">Controle de manutenção</div>
         </div>
       </div>
 
-      <nav className="mt-6 flex flex-col gap-2" aria-label="Seções do projeto">
+      <nav className="mt-6 flex flex-col gap-2" aria-label="Módulos do sistema">
         {navigation.map((item) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;
@@ -46,8 +46,9 @@ export function Sidebar({ activeSection, navigation, onNavigate }: SidebarProps)
       </nav>
 
       <div className="mt-auto rounded-lg border border-white/10 bg-white/5 p-4 text-sm">
-        <div className="font-bold text-slate-300">Período do projeto</div>
-        <div className="mt-1 font-black">01/03/2026 a 25/04/2026</div>
+        <div className="font-bold text-slate-300">Fase 2</div>
+        <div className="mt-1 font-black">Operação com dados persistidos</div>
+        <div className="mt-2 text-xs leading-5 text-slate-300">Entrega-alvo: 17/11/2026</div>
       </div>
     </aside>
   );

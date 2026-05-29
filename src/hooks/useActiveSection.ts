@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import type { ProjectSectionId } from "../types/project";
 
-export function useActiveSection(sectionIds: ProjectSectionId[], defaultSection: ProjectSectionId) {
-  const [activeSection, setActiveSection] = useState<ProjectSectionId>(defaultSection);
+export function useActiveSection<TSectionId extends string>(
+  sectionIds: readonly TSectionId[],
+  defaultSection: TSectionId,
+) {
+  const [activeSection, setActiveSection] = useState<TSectionId>(defaultSection);
 
   useEffect(() => {
     let animationFrame = 0;

@@ -1,22 +1,18 @@
 import {
-  Activity,
-  BarChart3,
-  CalendarDays,
-  CheckCircle2,
-  Layers3,
-  ShieldAlert,
-  Target,
+  ClipboardList,
+  Gauge,
+  LineChart,
+  RotateCcw,
+  Wrench,
 } from "lucide-react";
-import type { NavigationItem, ProjectSectionId } from "../types/project";
+import type { MaintenanceSectionId, NavigationItem } from "../types/maintenance";
 
 export const navigation: NavigationItem[] = [
-  { id: "inicio", label: "Início", icon: Activity },
-  { id: "problema", label: "Problema", icon: Target },
-  { id: "eap", label: "EAP", icon: Layers3 },
-  { id: "cronograma", label: "Cronograma", icon: CalendarDays },
-  { id: "riscos", label: "Riscos", icon: ShieldAlert },
-  { id: "custos", label: "Custos", icon: BarChart3 },
-  { id: "resultados", label: "Resultados", icon: CheckCircle2 },
+  { id: "dashboard", label: "Painel", icon: Gauge },
+  { id: "equipamentos", label: "Equipamentos", icon: Wrench },
+  { id: "ordens", label: "Ordens", icon: ClipboardList },
+  { id: "preventivas", label: "Preventivas", icon: RotateCcw },
+  { id: "relatorios", label: "Relatórios", icon: LineChart },
 ];
 
-export const sectionIds = navigation.map((item) => item.id) as ProjectSectionId[];
+export const sectionIds = navigation.map((item) => item.id) as MaintenanceSectionId[];
